@@ -7,6 +7,12 @@ function Jar({ name, price, left }) {
 }
 
 export default function App() {
+  const jars = [
+    { id: 1, name: 'honey', price: 400, left: 5 },
+    { id: 2, name: 'jam', price: 250, left: 4 },
+    { id: 3, name: 'oil', price: 600, left: 2 },
+  ];
+
   return (
     <div style={{ fontFamily: 'sans-serif', maxWidth: '450px', margin: '20px auto' }}>
       <header style={{ backgroundColor: 'teal', color: 'white', padding: '16px' }}>
@@ -14,9 +20,9 @@ export default function App() {
       </header>
 
       <main style={{ padding: '16px 0' }}>
-        <Jar name="honey" price={400} left={5} />
-        <Jar name="jam" price={250} left={4} />
-        <Jar name="oil" price={600} left={2} />
+        {jars.map((jar) => (
+          <Jar key={jar.id} name={jar.name} price={jar.price} left={jar.left} />
+        ))}
 
         <h3>Money 0</h3>
       </main>
